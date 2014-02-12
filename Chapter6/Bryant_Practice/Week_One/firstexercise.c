@@ -2,7 +2,7 @@
 /*The object of this program is the store the highest number until the user enters zero or below*/
 main()
 {
-  float number, storage = 0; int cmd;
+  float number, storage; int cmd;
 
   do{
     printf("Enter a number: ");
