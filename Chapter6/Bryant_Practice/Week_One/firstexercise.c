@@ -9,6 +9,10 @@ main()
     scanf("%f", &number);
 
     storage = number;
+    
+    printf("Enter a number: ");
+    scanf("%f", &number);
+    
   }while(number != 0);
 
   printf("The highest number stored was %f\n", storage);
