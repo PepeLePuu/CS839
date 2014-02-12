@@ -2,34 +2,16 @@
 /*The object of this program is the store the highest number until the user enters zero or below*/
 main()
 {
-  float number, storage; int cmd;
+  float number, storage = 0; int cmd;
 
-  for(;;)
-    {
-      switch(cmd)
-	{
-	case 0:
-	  printf("Enter a number: ");
-	  scanf("%f", &number);
-	  storage = number;
-	case 1:
-	  printf("Enter a number: ");
-	  scanf("%f", &number);
-	case 2: 
-	  if(storage > number)
-	    {
-	      storage = number;
-	      break;
-	    }
-	  else
-	    {
-	      break;
-	    }
-	case 3:
-	  if(storage <= 0 || number <= 0)
-	    printf("The largest number entered was %f", storage);
-	    return 0;
-	}
-    }
+  do{
+    printf("Enter a number: ");
+    scanf("%f", &number);
+
+    storage = number;
+  }while(number != 0);
+
+  printf("The highest number stored was %f\n", storage);
+
   return 0;
 }
