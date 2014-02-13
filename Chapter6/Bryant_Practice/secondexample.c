@@ -1,6 +1,6 @@
 #include <stdio.h>
 /*Compairs all pairs of three numbers*/
-float average(float a, b)
+float average(float a, float b)
 {
 return (a + b) / 2;
 }
