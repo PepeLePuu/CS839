@@ -9,6 +9,14 @@ qualify for the card and give a general explanation why.*/
 // You must write definitions for the two functions qualify
 // and noQualify.
 
+void qualify()
+{
+  cout << "You qualify!\n";
+}
+void noQualify()
+{
+  cout << "Get the fuck out...\n";
+}
 int main()
 {
   double salary; int years;
@@ -19,9 +27,9 @@ int main()
   cin >> salary;
   cout <<"\nHow many years have you worked at your current job? ";
   cin >> years;
-if(salary >= 17000.0 && years >= 2)
-qualify();
-else
-noQualify();
+  if(salary >= 17000.0 && years >= 2)
+  qualify();
+  else
+  noQualify();
 return 0;
 }
