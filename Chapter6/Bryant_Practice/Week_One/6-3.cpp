@@ -3,38 +3,36 @@
 using namespace std;
 /***************************************
 *
-first
+    first
 *
-* This function displays a message.
+*   This function displays a message.
 *
 ***************************************/
 void first()
 {
-cout << "I am now inside the function first.\n";
+  cout << "I am now inside the function first.\n";
 }
 /***************************************
 *
-second
+    second
 *
-* This function displays a message.
+*   This function displays a message.
 *
 ***************************************/
 void second()
 {
-cout << "I am now inside the function second.\n";
+  cout << "I am now inside the function second.\n";
 }
 /***************************************
 *
-main
+                  main
 *
 ***************************************/
 int main()
 {
-cout << "I am starting in function main.\n";
-first();
-// Call function first
-second();
-// Call function second
-cout << "Back in function main again.\n";
-return 0;
+  cout << "I am starting in function main.\n";
+  first();// Call function first
+  second();// Call function second
+  cout << "Back in function main again.\n";
+  return 0;
 }
