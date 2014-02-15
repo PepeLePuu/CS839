@@ -5,8 +5,20 @@ Assume that 'result' and 'number' have both been defined to be double variables.
 result = half(number);
 */
 #include <stdio.h>
+int half(double results, double number)
+{
+  results = half(number);
+  
+  return results / 2;
+}
 main()
 {
-
+  int number;
+  
+  printf("Enter a number: ");
+  scanf("%d", $number);
+  
+  number = half();
+  
   return 0;
 }
