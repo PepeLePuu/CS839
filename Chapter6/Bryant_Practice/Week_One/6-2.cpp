@@ -9,7 +9,7 @@ displayMessage
 ***************************************/
 void displayMessage()
 {
-cout << "Hello from the function displayMessage.\n";
+  cout << "Hello from the function displayMessage.\n";
 }
 
 /***************************************
@@ -19,10 +19,10 @@ main
 ***************************************/
 int main()
 {
-cout << "Hello from main.\n";
-for (int count = 0; count < 3; count++)
-displayMessage();
-// Call displayMessage
-cout << "Back in function main again.\n";
-return 0;
+  cout << "Hello from main.\n";
+  for (int count = 0; count < 3; count++)
+  displayMessage();
+  // Call displayMessage
+  cout << "Back in function main again.\n";
+  return 0;
 }
