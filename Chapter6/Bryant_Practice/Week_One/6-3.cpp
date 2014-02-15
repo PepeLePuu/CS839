@@ -2,8 +2,7 @@
 #include <iostream>
 using namespace std;
 /***************************************
-*
-    first
+*                first
 *
 *   This function displays a message.
 *
@@ -14,7 +13,7 @@ void first()
 }
 /***************************************
 *
-    second
+*                second
 *
 *   This function displays a message.
 *
@@ -25,7 +24,7 @@ void second()
 }
 /***************************************
 *
-                  main
+*                 main
 *
 ***************************************/
 int main()
