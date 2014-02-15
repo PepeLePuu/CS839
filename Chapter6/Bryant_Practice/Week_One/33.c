@@ -4,7 +4,7 @@ Assume that 'result' and 'number' have both been defined to be double variables.
 
 result = half(number);
 */
-include <stdio.h>
+#include <stdio.h>
 main()
 {
 
