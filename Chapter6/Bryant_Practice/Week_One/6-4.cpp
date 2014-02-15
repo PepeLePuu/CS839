@@ -3,38 +3,37 @@
 using namespace std;
 /***************************************
 *
-deeper
+*               deeper
 *
 * This function displays a message.
 *
 ***************************************/
 void deeper()
 {
-cout << "I am now inside the function deeper.\n";
+  cout << "I am now inside the function deeper.\n";
 }
 /***************************************
 *
-deep
+*                 deep
 *
 * This function displays a message.
 *
 ***************************************/
 void deep()
 {
-cout << "I am now inside the function deep.\n";
-deeper(); // Call function deeper
-cout << "Now I am back in deep.\n";
+  cout << "I am now inside the function deep.\n";
+  deeper(); // Call function deeper
+  cout << "Now I am back in deep.\n";
 }
 /***************************************
 *
-main
+*               main
 *
 ***************************************/
 int main()
 {
-cout << "I am starting in function main.\n";
-deep();
-// Call function deep
-cout << "Back in function main again.\n";
-return 0;
+  cout << "I am starting in function main.\n";
+  deep();// Call function deep
+  cout << "Back in function main again.\n";
+  return 0;
 }
