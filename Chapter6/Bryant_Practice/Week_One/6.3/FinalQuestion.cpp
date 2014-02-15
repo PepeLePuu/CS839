@@ -6,37 +6,22 @@ explain that the applicant qualifies for the card and that the annual interest r
 12 percent. The function noQualify should explain that the applicant does not
 qualify for the card and give a general explanation why.*/
 
-#include <iostream>
-using namespace std;
 // You must write definitions for the two functions qualify
 // and noQualify.
+
 int main()
 {
-double salary;
-int years;
-cout
-cout
-cout
-cin
-cout
-cout
-cin
-<<
-<<
-<<
->>
-<<
-<<
->>
-"This program will determine if you qualify\n";
-"for our credit card.\n";
-"What is your annual salary? ";
-salary;
-"How many years have you worked at your ";
-"current job? ";
-years;
-if (salary >= 17000.0 && years >= 2)
+  double salary; int years;
+
+  cout << "This program will determine if you qualify\n";
+  cout << "for our credit card.\n";
+  cout <<"What is your annual salary? ";
+  cin >> salary;
+  cout <<"\nHow many years have you worked at your current job? ";
+  cin >> years;
+if(salary >= 17000.0 && years >= 2)
 qualify();
 else
 noQualify();
-r
+return 0;
+}
