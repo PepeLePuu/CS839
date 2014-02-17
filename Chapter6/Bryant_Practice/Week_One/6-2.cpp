@@ -2,8 +2,7 @@
 #include <iostream>
 using namespace std;
 /***************************************
-*
-displayMessage
+*             displayMessage
 *
 * This function displays a greeting. *
 ***************************************/
@@ -13,8 +12,7 @@ void displayMessage()
 }
 
 /***************************************
-*
-main
+*                 main
 *
 ***************************************/
 int main()
