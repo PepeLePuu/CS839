@@ -5,21 +5,17 @@ using namespace std;
 void displayValue(int num);
 int main()
 {
-cout << "I am passing several values to displayValue.\n";
-displayValue(5);
-// Call displayValue with argument 5
-displayValue(10);
-// Call displayValue with argument 10
-displayValue(2);
-// Call displayValue with argument 2
-displayValue(16);
-// Call displayValue with argument 16
-cout << "Now I am back in main.\n";
-return 0;
+  cout << "I am passing several values to displayValue.\n";
+  displayValue(5);// Call displayValue with argument 5
+  displayValue(10);// Call displayValue with argument 10
+  displayValue(2);// Call displayValue with argument 2
+  displayValue(16);// Call displayValue with argument 16
+  cout << "Now I am back in main.\n";
+  return 0;
 }
 /********************************************
 *
-displayValue
+*               displayValue
 *
 * This function uses an integer parameter *
 * whose value is displayed.
@@ -27,5 +23,5 @@ displayValue
 ********************************************/
 void displayValue(int num)
 {
-cout << "The value is " << num << endl;
+  cout << "The value is " << num << endl;
 }
