@@ -1,9 +1,9 @@
 #include <iostream>
 using namespace std;
-bool grade(char a)
+bool grade(char a)//bool or true or false
 {
 	char letter = toupper(a);
-	return letter = ((letter >= 'A' && letter <= 'D') || letter == 'F');
+	return letter = ((letter >= 'A' && letter <= 'D') || letter == 'F');//return 0 or 1
 }
 int main()
 {
