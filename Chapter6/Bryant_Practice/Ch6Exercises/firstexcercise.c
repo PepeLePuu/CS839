@@ -1,5 +1,5 @@
 #include <stdio.h>
-int half(double number)
+double half(double number)
 {
   return number / 2;
 }
@@ -7,10 +7,10 @@ main()
 {
   double number, result;
   
-  printf("Enter a  number:\n");
-  scanf("%d",&number)
+  printf("Enter a number:\n");
+  scanf("%lf",&number);
   
   result = half(number);
-  printf("The half of this number is %d", result);
+  printf("The half of this number is %lf\n", result);
   return 0;
 }
