@@ -12,6 +12,6 @@ int cube(int num)
 }
 main()
 {
-
+  printf("%d\n", cube(4));
   return 0;
 }
