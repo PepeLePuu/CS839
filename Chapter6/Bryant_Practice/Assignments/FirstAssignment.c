@@ -1,4 +1,19 @@
-/*Then, the main() function asks the user to continue or not, and if the answer is 'y' or 'Y', reads another expression such as the one shown above,
+/*
+Write a program that reads a fraction, followed by a '+', '-', '*' or '/',
+followed by another fraction, like so: 
+1/2 + 1/4 (No spaces between the numerator and slash or the slash and the denominator). 
+It then passes both fractions - numerator and denominator 
+- and the character indicating the operation to be performed, to a function called calc()
+which calculates the result by adding, subtracting, multiplying or dividing the fractions depending
+on whether the character passed to it was '+', '-', '*' or '/',
+respectively, and assigns the resulting fraction's numerator and denominator to
+a pair of parameters which are used to pass these values back to main.
+
+Have main pass the numerator and denominator of the resulting fraction to a reduce function which reduces the original fraction passed to it.  The reduce function returns true if the fraction was modified (reduced) and false if not (e.g.: 3/4 cannot be reduced so it would return false indicating no change).  The main function then prints the reduced fraction along with either "The result was reduced" or "The result was not reduced." depending on the return value of the reduce function.
+
+
+Then, the main() function asks the user to continue or not, and if the answer is 'y' or 'Y',
+reads another expression such as the one shown above,
 and the above process continues.  It stops when the user answers with a 'n' or 'N'. 
 Have the program wait for a key to be pressed before ending.
 
