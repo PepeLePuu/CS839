@@ -3,7 +3,7 @@ using namespace std;
 void modify(char&);
 int main()
 {
-	char letter;
+	char grade;
 	cout << "Enter a letter grade: \n";
 	cin >> letter;
 	
@@ -17,6 +17,6 @@ void modify(char& gr)//char reference (&)
 {
   char letter = toupper(gr);
   
-  if(!(letter < 'A' || letter > 'F' || letter != 'E'));//if not between A and F excluding E
-  	gr = 'F';
+  if(!(letter < 'A' || letter > 'F' || letter != 'E'));/*if not between A and F excluding E*/
+  gr = 'F';
 }
