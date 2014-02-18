@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-void modify(char&);
+void modify(char&);//pass by reference
 int main()
 {
 	char grade;
