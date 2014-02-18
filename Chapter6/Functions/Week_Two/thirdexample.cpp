@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-void modify(char);
+void modify(char&);
 int main()
 {
 	char letter;
