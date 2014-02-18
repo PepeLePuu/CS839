@@ -5,7 +5,7 @@ int main()
 {
 	char grade;
 	cout << "Enter a letter grade: \n";
-	cin >> letter;
+	cin >> grade;
 	
 	modify(grade);
 	cout << "Grade = \n";
