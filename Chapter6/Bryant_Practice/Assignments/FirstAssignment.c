@@ -1,6 +1,10 @@
-/*Then, the main() function asks the user to continue or not, and if the answer is 'y' or 'Y', reads another expression such as the one shown above, and the above process continues.  It stops when the user answers with a 'n' or 'N'.  Have the program wait for a key to be pressed before ending.
+/*Then, the main() function asks the user to continue or not, and if the answer is 'y' or 'Y', reads another expression such as the one shown above,
+and the above process continues.  It stops when the user answers with a 'n' or 'N'. 
+Have the program wait for a key to be pressed before ending.
 
-Put your name, CSIT 839 and assignment number on top of your source code. Add comments where the code may not be very clear and to explain what variables are for what purpose such as resulting fraction, input fraction, etc.
+Put your name, CSIT 839 and assignment number on top of your source code.
+Add comments where the code may not be very clear and to explain what variables are 
+for what purpose such as resulting fraction, input fraction, etc.
 
 The following is a sample interaction between the user and the program:
 
