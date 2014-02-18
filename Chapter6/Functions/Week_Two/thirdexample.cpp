@@ -12,8 +12,9 @@ int main()
 
 	system("pause");
 	return 0;
-}void modify(char& gr)//char reference (&)
-{  
+}
+void modify(char& gr)//char reference (&)
+{
 	char letter = toupper(gr);  
 	if(!(letter < 'A' || letter > 'F' || letter != 'E'));/*if not between A and F excluding E*/  
 	gr = 'F';
