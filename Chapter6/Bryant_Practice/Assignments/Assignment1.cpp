@@ -1,4 +1,4 @@
-/*Bryant Zepeda
+]/*Bryant Zepeda
 CSIT 839
 Assignment #1
 */
@@ -14,13 +14,13 @@ int main()
 int psr_num1, psr_den1, psr_num2, psr_den2;
 char slash = '/';
 
-calc(psr_num1, psr_den1, psr_num2, psr_den2);
-
 char operation;
 
 cout << "Enter a fraction expression: ";
 cin >> psr_num1 >> slash >> psr_den1
 >> psr_num2 >> slash >> psr_den2;
+
+calc(psr_num1, psr_den1, psr_num2, psr_den2);
 
 //system("pause");
 return 0;
