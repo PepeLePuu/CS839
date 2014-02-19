@@ -6,6 +6,7 @@ Assignment #1
 bool reduce()
 {
 
+};
 void calc(int&, int&);
 using namespace std;
 int main()
@@ -24,3 +25,5 @@ int main()
 }
 void calc(int& num, int& den)
 {
+
+}
