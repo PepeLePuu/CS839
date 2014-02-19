@@ -9,7 +9,12 @@ on whether the character passed to it was '+', '-', '*' or '/',
 respectively, and assigns the resulting fraction's numerator and denominator to
 a pair of parameters which are used to pass these values back to main.
 
-Have main pass the numerator and denominator of the resulting fraction to a reduce function which reduces the original fraction passed to it.  The reduce function returns true if the fraction was modified (reduced) and false if not (e.g.: 3/4 cannot be reduced so it would return false indicating no change).  The main function then prints the reduced fraction along with either "The result was reduced" or "The result was not reduced." depending on the return value of the reduce function.
+Have main pass the numerator and denominator of the resulting fraction to a reduce 
+function which reduces the original fraction passed to it. 
+The reduce function returns true if the fraction was modified (reduced)
+and false if not (e.g.: 3/4 cannot be reduced so it would return false indicating no change). 
+The main function then prints the reduced fraction along with either
+"The result was reduced" or "The result was not reduced." depending on the return value of the reduce function.
 
 
 Then, the main() function asks the user to continue or not, and if the answer is 'y' or 'Y',
@@ -51,5 +56,6 @@ n1/d1 / n2/d2 = n1*d2 / d1*n2
 
 To reduce a fraction, try dividing the larger of the numerator/denominator by the smaller of the two;
 if not divisible, try the next lower number until you reach 1. 
-For example, if the fraction is 12/9, try dividing 12 by 9, if it were divisible, you'd be done, but since it's not you try 12 over 8, 7, 6, ..., 3;
+For example, if the fraction is 12/9, try dividing 12 by 9, if it were divisible,
+you'd be done, but since it's not you try 12 over 8, 7, 6, ..., 3;
 when you get to 3, they're both divisible so you divide both by 3 getting 4/3.*/
