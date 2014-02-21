@@ -1,21 +1,65 @@
+/*Bryant Zepeda
+CSIT 839
+Assignment #1
+*/
 #include <iostream>
 using namespace std;
-bool grade(char a)//bool or true or false
+bool reduce()
 {
-	char letter = toupper(a);
-	return letter = ((letter >= 'A' && letter <= 'D') || letter == 'F');//return 0 or 1
-}
+
+};
+void calc(int&, int&, char&, int&, int&, int&, int&);
 int main()
 {
-	char letter;
-	cout << "Enter a letter grade: \n";
-	cin >> letter;
+int psr_num1, psr_den1, psr_num2, psr_den2;
+char slash = '/';
 
-	if(grade(letter))
-		cout << "Valid grade!\n";
-	else
-		cout << "\nInvalid grade\n";
+char operation;
+cout << "Enter a fraction expression: ";
+ cin >> psr_num1 >> slash >> psr_den1 >>
 
-	system("pause");
-	return 0;
+operation >> psr_num2 >> slash >> psr_den2;
+
+ int store_num, store_den;
+ calc(psr_num1, psr_den1, operation, psr_num2, psr_den2, store_num, store_den);
+
+ cout << psr_num1 << slash << psr_den1 << operation << psr_num2
+      << slash << psr_den2 << " = " << store_num << slash << store_den 
+      << endl;
+
+
+//system("pause");
+return 0;
+}
+void calc(int& num1, int& den1, char& op_calc, int& num2, int& den2, int& calln, int& calld)
+{
+ int t_num, t_den;
+if(op_calc == '+')
+  {
+ t_num = num1 + num2;
+ t_den = den1 + den2;
+ calln = t_num;
+ calld = t_den;
+  }
+if(op_calc == '-')
+  {
+    t_num = num1 - num2;
+    t_den = den1 - den2;
+    calln = t_num;
+    calld = t_den;
+  }
+if(op_calc == '*')
+  {
+    t_num = num1 * num2;
+    t_den = den1 * den2;
+    calln = t_num;
+    calld = t_den;
+  }
+if(op_calc == '/')
+  {
+    t_num = num1 * den2;
+    t_den = num2 * den1;
+    calln = t_num;
+    calld = t_den;
+  }
 }
