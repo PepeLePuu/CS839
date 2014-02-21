@@ -8,7 +8,7 @@ bool reduce()
 {
 
 };
-void calc(int&, int&, int&, int&);
+void calc(int&, int&, char&, int&, int&);
 int main()
 {
 int psr_num1, psr_den1, psr_num2, psr_den2;
@@ -20,32 +20,31 @@ cout << "Enter a fraction expression: ";
 
 operation >> psr_num2 >> slash >> psr_den2;
 
-calc(psr_num1, psr_den1, psr_num2, psr_den2);
+calc(psr_num1, psr_den1, operation, psr_num2, psr_den2);
 
- cout << 
 
 //system("pause");
 return 0;
 }
-void calc(int& num1, int& den1, int& num2, int& den2)
+void calc(int& num1, int& den1, char& op_calc int& num2, int& den2)
 {
-  char operation; int t_num, t_den;
-switch(operation)
-{
- case 1:
-if(operation == '+')
+ char operation; int t_num, t_den;
+ switch(op_calc)
+ {
+  case 1:
+  if(op_calc == '+') 
   t_num = num1 + num2;
- t_den = den1 + den2;
- break;
- case 2:
-if(operation == '*')
+  t_den = den1 + den2;
   break;
- case 3:
-if(operation == '-')
+  case 2:
+  if(op_calc == '*')
   break;
- case 4:
-if(operation == '/')
+  case 3:
+  if(op_calc == '-')
   break;
-}
+  case 4:
+  if(op_calc == '/')
+  break;
+ }
 
 }
