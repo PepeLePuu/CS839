@@ -25,6 +25,7 @@ operation >> psr_num2 >> slash >> psr_den2;
 
  int store_num, store_den;
  calc(psr_num1, psr_den1, operation, psr_num2, psr_den2, store_num, store_den);
+ reduce(store_num, store_den);
 
  cout << psr_num1 << slash << psr_den1 << operation << psr_num2
       << slash << psr_den2 << " = " << store_num << slash << store_den 
