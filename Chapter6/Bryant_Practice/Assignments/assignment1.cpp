@@ -15,7 +15,7 @@ void calc(int&, int&, char&, int&, int&, int&, int&);
 int main()
 {
 int psr_num1, psr_den1, psr_num2, psr_den2;
- char slash = '/'; char m_loop;
+ char slash = '/'; char m_loop, cap_op;
 
 char operation;
 cout << "Enter a fraction expression: ";
@@ -33,7 +33,8 @@ operation >> psr_num2 >> slash >> psr_den2;
 
        cout << "Do you want to continue? : [Y/N] \n";
        cin >> m_loop;
-       toupper(m_loop);
+       cap_op = toupper(m_loop);
+       
        do{
        if(m_loop == 'Y')
 	 {
