@@ -36,11 +36,11 @@ operation >> psr_num2 >> slash >> psr_den2;
        cap_op = toupper(m_loop);
        
        do{
-       if(m_loop == 'Y')
+       if(cap_op == 'Y')
 	 {
 	   return main();
 	 }
-       if(m_loop == 'N')
+       if(cap_op == 'N')
 	 {
 	   cout << "Press any key to continue: " << endl;
 	   return 0;
@@ -49,7 +49,7 @@ operation >> psr_num2 >> slash >> psr_den2;
 	 {
 	   break;
 	 }
-       }while(m_loop != 'Y' | m_loop != 'N');
+       }while(cap_op != 'Y' | cap_op != 'N');
 //system("pause");
        return 0;
 }
