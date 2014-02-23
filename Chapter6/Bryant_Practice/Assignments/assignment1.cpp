@@ -87,6 +87,7 @@ if(op_calc == '/')
 }
 bool reduce(int& r_num, int& r_den)
 {
-
+	for(int i =  r_num > r_den ? r_num : r_den; r_num && r_den % 0; --i)
+	r_num/=i;
+	r_den/=i;
 }
-
