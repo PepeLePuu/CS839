@@ -11,7 +11,8 @@ bool reduce(int&, int&);
  For example, if the fraction is 12/9, try dividing 12 by 9, if it were divisible,
  you'd be done, but since it's not you try 12 over 8, 7, 6, ..., 3;
  when you get to 3, they're both divisible so you divide both by 3 getting 4/3.*/
-void calc(int&, int&, char&, int&, int&, int&, int&);
+
+void calc(int&,char&,int&, char&, int&, char&, int&, int&, int&);
 int main()
 {
 int psr_num1, psr_den1, psr_num2, psr_den2;
@@ -24,7 +25,7 @@ cout << "Enter a fraction expression: ";
 operation >> psr_num2 >> slash >> psr_den2;
 
  int store_num, store_den;
- calc(psr_num1, psr_den1, operation, psr_num2, psr_den2, store_num, store_den);
+ calc(psr_num1,slash, psr_den1, operation, psr_num2,slash,psr_den2, store_num, store_den);
  reduce(store_num, store_den);
 
  cout << psr_num1 << slash << psr_den1 << operation << psr_num2
@@ -53,36 +54,27 @@ operation >> psr_num2 >> slash >> psr_den2;
 //system("pause");
        return 0;
 }
-void calc(int& num1, int& den1, char& op_calc, int& num2, int& den2, int& calln, int& calld)
+void calc(int& num1, char& slash1, int& den1, char& op_calc, int& num2, char& slash2, int& den2, int& calln, int& calld)
 {
- int t_num, t_den;
 if(op_calc == '+')
   {
- t_num = num1 + num2;
- t_den = den1 + den2;
- calln = t_num;
- calld = t_den;
+    calln = num1 * den2;
+    calld = (den1 * num2) / (den1 * den2);
   }
 if(op_calc == '-')
   {
-    t_num = num1 - num2;
-    t_den = den1 - den2;
-    calln = t_num;
-    calld = t_den;
+    calln = num1 - num2;
+    calld = den1 - den2;
   }
 if(op_calc == '*')
   {
-    t_num = num1 * num2;
-    t_den = den1 * den2;
-    calln = t_num;
-    calld = t_den;
+    calln = num1 * num2;
+    calld = den1 * den2;
   }
 if(op_calc == '/')
   {
-    t_num = num1 * den2;
-    t_den = num2 * den1;
-    calln = t_num;
-    calld = t_den;
+    calln = num1 * den2;
+    calld = num2 * den1;
   }
 }
 bool reduce(int& r_num, int& r_den)
@@ -95,5 +87,4 @@ bool reduce(int& r_num, int& r_den)
 	  r_den/=i;
 	}
     }
-  return reduce;
 }
