@@ -24,6 +24,12 @@ int main()
   
   cout << endl << str3 << endl;
   
+  char str4[26], str5[26];
+  strcpy(str4, str1);
+  strcpy(str5, str2);
+  str1[0] = toupper(str1[0]);
+  str2[0] = toupper(str2[0]);
+  cout << str1 << endl << str2;
   str1[0] = toupper(str1[0]);
   str2[0] = toupper(str2[0]);
   cout << str1 << endl << str2;
