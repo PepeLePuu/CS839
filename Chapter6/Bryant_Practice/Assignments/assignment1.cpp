@@ -16,7 +16,7 @@ void calc(int&,char&,int&, char&, int&, char&, int&, int&, int&);
 int main()
 {
 int psr_num1, psr_den1, psr_num2, psr_den2;
- char slash = '/'; char m_loop, cap_op;
+ char slash; char m_loop, cap_op;
 
 char operation;
 cout << "Enter a fraction expression: ";
@@ -58,8 +58,11 @@ void calc(int& num1, char& slash1, int& den1, char& op_calc, int& num2, char& sl
 {
 if(op_calc == '+')
   {
-    calln = num1 * den2;
-    calld = (den1 * num2) / (den1 * den2);
+    num2 = num2 * den1;
+    num1 = num1 * den2;
+    den1 = den1 * den2;
+    calld = den1;
+    calln = num1 + num2;
   }
 if(op_calc == '-')
   {
