@@ -19,8 +19,7 @@ cout << val << " is odd.\n";
 return 0;
 }
 /*******************************************************
-*
-isEven
+*                       isEven
 *
 * This Boolean function tests if the integer argument *
 * it receives is even or odd. It returns true if the *
