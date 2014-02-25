@@ -64,10 +64,14 @@ if(op_calc == '+')
     calld = den1;
     calln = num1 + num2;
   }
-if(op_calc == '-')
+ if(op_calc == '-')//please fix
   {
-    calln = num1 - num2;
-    calld = den1 - den2;
+	num2 = num2 * den1;
+	num1 = num1 * den2;
+	den1 = den1 * den2;
+	calld = den1;
+	calln = num1 - num2;
+	/*There will be instances that num2 will be greater than num1 so just a REMINDER*/
   }
 if(op_calc == '*')
   {
