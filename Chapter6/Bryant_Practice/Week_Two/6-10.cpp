@@ -14,8 +14,7 @@ divide(num1, num2);
 return 0;
 }
 /********************************************************
-*
-divide
+*                         divide
 *
 * This function uses two parameters, arg1 and arg2.
 *
@@ -28,9 +27,9 @@ divide
 void divide(double arg1, double arg2)
 {
 if (arg2 == 0.0)
-{
-cout << "Sorry, I cannot divide by zero.\n";
-return;
+  {
+    cout << "Sorry, I cannot divide by zero.\n";
+    return;
 }
 cout << "The quotient is " << (arg1 / arg2) << endl;
 }
