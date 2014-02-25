@@ -1,6 +1,7 @@
 /*Bryant Zepeda
 CSIT 839
 Assignment #1
+BUILD AS INSTRUCTED. DO NOT WORK ON ENHANCED UNTIL THIS ONE IS DONE.
 */
 #include <iostream>
 using namespace std;
