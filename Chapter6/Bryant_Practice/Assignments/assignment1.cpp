@@ -59,6 +59,9 @@ operation >> psr_num2 >> slash >> psr_den2;
 //system("pause");
        return 0;
 }
+/*!PROBLEM!: Floating point exeptions happen when multiplying 1/2 * 1/4 when the boolean paramater for
+reduce(int, int, bool) is set to decide whether it is true or false[LINE 89-105]. When boolean conditions
+are removed, the program runs flawlessly. Most likely a flow&bracket error after the for statement when declaring bool tf*/
 void calc(int& num1, char& slash1, int& den1, char& op_calc, int& num2, char& slash2, int& den2, int& calln, int& calld)
 {
 if(op_calc == '+')
