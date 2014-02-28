@@ -87,17 +87,21 @@ bool reduce(int& r_num, int& r_den, bool& r_tf)
 {
 for(int i = r_num < r_den ? r_num : r_den; i >= 1; --i)
   {
-if(r_num % i == 0 && r_den % i == 0)
-  if(i == 1)
-    {
-      r_tf = false;
-    }
-  else
-    {
-	r_num/=i;
-	r_den/=i;
-	r_tf = true;
-    }
-  }   
+    if(r_num % i == 0 && r_den % i == 0)
+      r_num/=i;
+      r_den/=i;
+      if(i == 1)
+	{
+	  r_tf = false;
+	  break;
+	}
+  } 
+ r_tf = true;  
  return r_tf;
 }
+/*!TEMP FIX!: I'm am guessing the past problem with the for statement is that it declared 'r_tf' true multiple times
+overwriting when it was set to FALSE. By the time it's done divising by i, it should be declared outside
+the for statement because it is done.
+Also I added the "i == 1" if statement at the end because I think it makes more sense
+at the end because I am still waiting
+for it to divide by by i.*/
