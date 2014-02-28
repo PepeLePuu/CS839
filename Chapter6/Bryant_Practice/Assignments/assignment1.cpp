@@ -28,13 +28,13 @@ operation >> psr_num2 >> slash >> psr_den2;
  int store_num, store_den;
  calc(psr_num1,slash, psr_den1, operation, psr_num2,slash,psr_den2, store_num, store_den);
  reduce(store_num, store_den, tf);
- if(tf = true)
+ if(tf == true)
    {
    cout << psr_num1 << slash << psr_den1 << operation << psr_num2
 	<< slash << psr_den2 << " = " << store_num << slash << store_den
 	<< endl;
    }
- else if(tf = false)
+ else if(tf == false)
    {
    cout << "The value was not changed!\n";
  cout << psr_num1 << slash << psr_den1 << operation << psr_num2
