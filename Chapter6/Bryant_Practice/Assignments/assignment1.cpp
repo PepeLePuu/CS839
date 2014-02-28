@@ -1,11 +1,10 @@
 /*Bryant Zepeda
 CSIT 839
 Assignment #1
-DO NOT TURN THIS ONE IN! THIS ONE IS TO IMPROVE ON AND WORK WITH MIXED NUMBERS!
 */
 #include <iostream>
 using namespace std;
-bool reduce(int&, int&);
+bool reduce(int&, int&, bool&);
   /*
 To reduce a fraction, try dividing the larger of the numerator/denominator by
 the smaller of the two; if not divisible, try the next lower number until you reach 1.
@@ -16,8 +15,9 @@ when you get to 3, they're both divisible so you divide both by 3 getting 4/3.*/
 void calc(int&,char&,int&, char&, int&, char&, int&, int&, int&);
 int main()
 {
-int psr_num1, psr_den1, psr_num2, psr_den2;
+  int psr_num1, psr_den1, psr_num2, psr_den2;
  char slash; char m_loop, cap_op;
+ bool tf;
 
 char operation;
 cout << "Enter a fraction expression: ";
@@ -27,12 +27,20 @@ operation >> psr_num2 >> slash >> psr_den2;
 
  int store_num, store_den;
  calc(psr_num1,slash, psr_den1, operation, psr_num2,slash,psr_den2, store_num, store_den);
- /*reduce(store_num, store_den);*/
-
+ reduce(store_num, store_den, tf);
+ if(tf = true)
+   {
+   cout << psr_num1 << slash << psr_den1 << operation << psr_num2
+	<< slash << psr_den2 << " = " << store_num << slash << store_den
+	<< endl;
+   }
+ else if(tf = false)
+   {
+   cout << "The value was not changed!\n";
  cout << psr_num1 << slash << psr_den1 << operation << psr_num2
       << slash << psr_den2 << " = " << store_num << slash << store_den
       << endl;
-
+   }
        cout << "Do you want to continue? : [Y/N] \n";
        cin >> m_loop;
        cap_op = toupper(m_loop);
@@ -80,14 +88,20 @@ if(op_calc == '/')
   }
 }
 
-bool reduce(int& r_num, int& r_den)
+bool reduce(int& r_num, int& r_den, bool& r_tf)
 {
 for(int i = r_num < r_den ? r_num : r_den; i <= 1; --i)
-{
+  {
 if(r_num % i == 0 && r_den % i == 0)
-{
-r_num/=i;
-r_den/=i;
-}
-}
+  {
+    r_num/=i;
+    r_den/=i;
+    if(i = 1)
+      {
+	r_tf = false;
+      }
+    r_tf = true;
+ }
+  }
+ return reduce;
 }
