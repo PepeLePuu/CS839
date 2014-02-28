@@ -129,7 +129,6 @@ if(r_num % i == 0 && r_den % i == 0)
 	r_den/=i;
 	r_tf = true;   
       }
-  }
  return r_tf;
 }
 */
