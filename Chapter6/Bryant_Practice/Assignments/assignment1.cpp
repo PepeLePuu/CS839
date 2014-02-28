@@ -55,10 +55,6 @@ operation >> psr_num2 >> slash >> psr_den2;
 	   cout << "Press any key to continue: " << endl;
 	   return 0;
 	 }
-       else
-	 {
-	   break;
-	 }
        }while(cap_op != 'Y' | cap_op != 'N');
 //system("pause");
        return 0;
@@ -103,5 +99,5 @@ if(r_num % i == 0 && r_den % i == 0)
     r_tf = true;
  }
   }
- return reduce;
+ return r_tf;
 }
