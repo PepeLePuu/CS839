@@ -114,3 +114,22 @@ for(int i = r_num < r_den ? r_num : r_den; i <= 1; --i)
 reduce(int, int, bool) is set to decide whether it is true or false[LINE 89-105]. When boolean conditions
 are removed, the program runs flawlessly. Most likely a flow&bracket error after the for statement
 when declaring bool tf*/
+
+/*bool reduce(int& r_num, int& r_den, bool& r_tf)
+{
+for(int i = r_num < r_den ? r_num : r_den; i <= 1; --i)
+if(r_num % i == 0 && r_den % i == 0)
+  if(i == 1)
+    {
+      r_tf = false;
+    }
+    else
+      {
+	r_num/=i;
+	r_den/=i;
+	r_tf = true;   
+      }
+  }
+ return r_tf;
+}
+*/
