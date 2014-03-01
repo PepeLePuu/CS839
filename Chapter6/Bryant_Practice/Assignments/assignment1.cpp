@@ -65,7 +65,13 @@ if(op_calc == '+')
   {
     calln = num1 * den2 + den1 * num2;
     calld = den1 * den2;
-  }
+    /*if(den1` > den2)
+    {
+    if(den1 % den2 == 0)
+    for(int i = den2; i >= den1; ++i)
+    {
+    den2*=i;
+    }*/
  if(op_calc == '-')//please fix
   {
     calln = num1 * den2 - den1 * num2;
