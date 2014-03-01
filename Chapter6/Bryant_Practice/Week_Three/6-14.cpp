@@ -5,7 +5,7 @@
 #include <string>
 using namespace std;
 // Function prototypes
-void displayMenu();
+void displayMenu();// Holds the user's menu choice
 int getChoice();
 void showFees(string category, double rate, int months);
 int main()
@@ -14,25 +14,22 @@ int main()
 const double ADULT_RATE = 40.00,
 SENIOR_RATE = 30.00,
 CHILD_RATE = 20.00;
-int choice,
-// Holds the user's menu choice
-months;
-// Number of months being paid
+
+int choice,//Holds the users's menu choice
+months;//Number of months being paid.
+
 // Set numeric output formatting
 cout << fixed << showpoint << setprecision(2);
-do
-{ displayMenu();
-choice = getChoice(); //
-//
-if (choice != 4)
-//
+do{
+  displayMenu();
+  choice = getChoice();//Assign choice the value returned
+                      //by the getChoice function
+  
+if (choice != 4)//If the user does not want to quit
 {
-cout << "For how many
+cout << "For how many months? ";
 cin >> months;
-Assign choice the value returned
-by the getChoice function
-If user does not want to quit, proceed
-months? ";
+
 switch (choice)
 {
 case 1: showFees("Adult", ADULT_RATE, months);
@@ -46,8 +43,7 @@ case 3: showFees("Senior", SENIOR_RATE, months);
 return 0;
 }
 /**********************************************
-*
-displayMenu
+*               displayMenu
 *
 * This function clears the screen and then
 *
@@ -56,8 +52,7 @@ displayMenu
 **********************************************/
 void displayMenu()
 {
-system("cls");
-// Clear the screen.
+system("cls");// Clear the screen.
 cout << "\n Health Club Membership Menu\n\n";
 cout << "1. Standard Adult Membership\n";
 cout << "2. Child Membership\n";
@@ -65,8 +60,7 @@ cout << "3. Senior Citizen Membership\n";
 cout << "4. Quit the Program\n\n";
 }
 /**************************************************
-*
-getChoice
+*                   getChoice
 *
 * This function inputs, validates, and returns *
 * the user's menu choice.
@@ -77,15 +71,15 @@ int getChoice()
 int choice;
 cin >> choice;
 while (choice < 1 || choice > 4)
-{ cout << "The only valid choices are 1-4.
-cin >> choice;
+{ 
+  cout << "The only valid choices are 1-4. Please re-enter. ";
+  cin >> choice;
 }
 return choice;
-Please re-enter. ";
+
 }
 /**************************************************************
-*
-showFees
+*                       showFees
 *
 * This function uses the membership type, monthly rate, and *
 * number of months passed to it as arguments to compute and *
@@ -99,11 +93,10 @@ showFees
 void showFees(string memberType, double rate, int months)
 {
 cout << endl
-<< "Membership Type : " << memberType << "
-"
+<< "Membership Type : " << memberType << "  "
 << "Number of months: " << months << endl
-<< "Total charges
-: $" << (rate * months) << endl;
+<< "Total charges : $" << (rate * months) << endl;
+<< (rate * months) << endl;
 // Hold the screen until the user presses the ENTER key.
 cout << "\nPress the Enter key to return to the menu. ";
 cin.get();
