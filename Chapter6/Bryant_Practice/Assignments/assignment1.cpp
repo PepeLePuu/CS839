@@ -33,7 +33,7 @@ operation >> psr_num2 >> slash >> psr_den2;
 
  if(tf == true)
    {
-     cout << "The result was not reduced.(tf == true) \n";
+     cout << "The result was reduced.\n";
 
  cout << psr_num1 << slash << psr_den1 << operation << psr_num2
 	<< slash << psr_den2 << " = " << store_num << slash << store_den
@@ -41,7 +41,7 @@ operation >> psr_num2 >> slash >> psr_den2;
    }
  else if(tf == false)
    {
-   cout << "The result was reduced (tf == false).\n";
+   cout << "The result was not reduced\n";
  cout << psr_num1 << slash << psr_den1 << operation << psr_num2
       << slash << psr_den2 << " = " << store_num << slash << store_den
       << endl;
@@ -135,8 +135,8 @@ bool reduce(int& r_num, int& r_den, bool& r_tf)
       }
       if(i == 1)
 	{
-	  r_tf = false;
-	  return r_tf;
+	  r_tf = true;//it reduces to 1 so why did I set it to false
+	  return r_tf;//add somewhere i they are equal then return as 1/1
 	}
   }
  r_tf = true;  
