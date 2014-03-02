@@ -17,17 +17,21 @@ when you get to 3, they're both divisible so you divide both by 3 getting 4/3.*/
 void calc(int&,char&,int&, char&, int&, char&, int&, int&, int&);
 int main()
 {
+  /*START OF VARIABLES THAT WILL PASS ARGUMENTS*/
   int psr_num1, psr_den1, psr_num2, psr_den2;
- char slash; char m_loop, cap_op;
- bool tf;
+  char slash; bool tf; char operation;
+  /*END OF VARIABLES THAT WILL PASS ARGUMENTS*/
 
-char operation;
-cout << "Enter a fraction expression: ";
- cin >> psr_num1 >> slash >> psr_den1 >>
+  char m_loop;/*Continue Y/N loop input*/
 
-operation >> psr_num2 >> slash >> psr_den2;
+  cout << "Enter a fraction expression: ";
+  cin >> psr_num1 >> slash >> psr_den1 >>
+    operation >> psr_num2 >> slash >> psr_den2;
 
- int store_num, store_den;
+  int store_num, store_den;/*Storing values for passing arguments for calc() and reduce()*/
+  int temp_n1 = psr_num1, temp_d1 = psr_den1,
+    temp_n2 = psr_num2, temp_d2 = psr_den2;/*Temporary storing so user won't see calculations*/
+
  calc(psr_num1,slash, psr_den1, operation, psr_num2,slash,psr_den2, store_num, store_den);//calculated values show up on instead of original
  reduce(store_num, store_den, tf);
 
@@ -35,32 +39,33 @@ operation >> psr_num2 >> slash >> psr_den2;
    {
      cout << "The result was reduced.\n";
 
- cout << psr_num1 << slash << psr_den1 << operation << psr_num2
-	<< slash << psr_den2 << " = " << store_num << slash << store_den
-	<< endl;
+     cout << psr_num1 << slash << psr_den1 << operation << psr_num2
+	  << slash << psr_den2 << " = " << store_num << slash << store_den
+	  << endl;
    }
  else if(tf == false)
    {
    cout << "The result was not reduced\n";
- cout << psr_num1 << slash << psr_den1 << operation << psr_num2
-      << slash << psr_den2 << " = " << store_num << slash << store_den
-      << endl;
+
+   cout << psr_num1 << slash << psr_den1 << operation << psr_num2
+	<< slash << psr_den2 << " = " << store_num << slash << store_den
+	<< endl;
    }
        cout << "Do you want to continue? : [Y/N] \n";
        cin >> m_loop;
-       cap_op = toupper(m_loop);
+       m_loop = toupper(m_loop);
        
        do{
-       if(cap_op == 'Y')
+       if(m_loop == 'Y')
 	 {
 	   return main();
 	 }
-       if(cap_op == 'N')
+       if(m_loop == 'N')
 	 {
 	   cout << "Press any key to continue: " << endl;
 	   return 0;
 	 }
-       }while(cap_op != 'Y' | cap_op != 'N');
+       }while(m_loop != 'Y' | m_loop != 'N');
 //system("pause");
        return 0;
 }
@@ -69,6 +74,7 @@ void calc(int& num1, char& slash1, int& den1, char& op_calc, int& num2, char& sl
 if(op_calc == '+')
   {
     int temp_d1, temp_d2;
+
     temp_d1 = den1; temp_d2 = den2;
     den1*=den2;
     den2*=temp_d1;
@@ -78,12 +84,10 @@ if(op_calc == '+')
     calln = num1 + num2;
     calld = den2;
   }
- if(op_calc == '-')//please fix
+ if(op_calc == '-')
   {
-    /*if(num1 == num2)
-calln = num1;
-    */
-int temp_d1, temp_d2;
+    int temp_d1, temp_d2;
+
     temp_d1 = den1; temp_d2 = den2;
     den1*=den2;
     den2*=temp_d1;
@@ -92,10 +96,7 @@ int temp_d1, temp_d2;
 
     calln = num1 - num2;
     calld = den2;
-
-    /*0/360 - 3/24 = -45/360? DOES NOT REDUCE*/
     /*When the result is negative, it won't do the reduction*/
-
 /*There will be instances that num2 will be greater than num1 so just a REMINDER*/
   }
 if(op_calc == '*')
