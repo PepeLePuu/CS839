@@ -111,3 +111,26 @@ the for statement because it is done.
 Also I added the "i == 1" if statement at the end because I think it makes more sense
 at the end because I am still waiting
 for it to divide by by i.*/
+
+/*
+if(op_calc == '+')
+  {
+    int temp_num;
+ if(den2 > den1)
+   {
+     den2*=den1;
+     temp_num = den1;
+     for(int i = 1; i*=den1=den2; ++i)
+       {
+	 while(i % den2 == 0)
+	   {
+	   den1 = i;
+	   break;
+	   }
+       }
+     num2*=temp_num;
+   }
+ calln = num1 + num2;
+ calld = den1;
+  }
+  */
