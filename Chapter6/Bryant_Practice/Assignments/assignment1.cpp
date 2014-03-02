@@ -3,7 +3,6 @@ CSIT 839
 Assignment #1
 */
 #include <iostream>
-#include <math.h>
 #include <stdlib.h>
 using namespace std;
 bool reduce(int&, int&, bool&);
@@ -17,13 +16,13 @@ int main()
 
   char m_loop;/*Continue Y/N loop input*/
 
-  cout << "Enter a fraction expression: ";
+  cout << "Enter a fraction expression: \n";
   cin >> psr_num1 >> slash >> psr_den1 >>
     operation >> psr_num2 >> slash >> psr_den2;
 
   int store_num, store_den;/*Storing values for passing arguments for calc() and reduce()*/
   int temp_n1 = psr_num1, temp_d1 = psr_den1,
-    temp_n2 = psr_num2, temp_d2 = psr_den2;/*Temporary storing so user won't see calculations*/
+    temp_n2 = psr_num2, temp_d2 = psr_den2;/*Input storing so user won't see calculations*/
 
  calc(psr_num1,slash, psr_den1, operation, psr_num2,slash,psr_den2, store_num, store_den);//calculated values show up on instead of original
  reduce(store_num, store_den, tf);
@@ -32,16 +31,16 @@ int main()
    {
      cout << "The result was reduced.\n";
 
-     cout << psr_num1 << slash << psr_den1 << operation << psr_num2
-	  << slash << psr_den2 << " = " << store_num << slash << store_den
+     cout << temp_n1 << slash << temp_d1 << operation << temp_n2
+	  << slash << temp_d2 << " = " << store_num << slash << store_den
 	  << endl;
    }
  else if(tf == false)
    {
    cout << "The result was not reduced\n";
 
-   cout << psr_num1 << slash << psr_den1 << operation << psr_num2
-	<< slash << psr_den2 << " = " << store_num << slash << store_den
+   cout << temp_n1 << slash << temp_d1 << operation << temp_n2
+	<< slash << temp_d2 << " = " << store_num << slash << store_den
 	<< endl;
    }
        cout << "Do you want to continue? : [Y/N] \n";
