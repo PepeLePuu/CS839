@@ -7,13 +7,6 @@ Assignment #1
 #include <stdlib.h>
 using namespace std;
 bool reduce(int&, int&, bool&);
-  /*
-To reduce a fraction, try dividing the larger of the numerator/denominator by
-the smaller of the two; if not divisible, try the next lower number until you reach 1.
-For example, if the fraction is 12/9, try dividing 12 by 9, if it were divisible,
-you'd be done, but since it's not you try 12 over 8, 7, 6, ..., 3;
-when you get to 3, they're both divisible so you divide both by 3 getting 4/3.*/
-
 void calc(int&,char&,int&, char&, int&, char&, int&, int&, int&);
 int main()
 {
