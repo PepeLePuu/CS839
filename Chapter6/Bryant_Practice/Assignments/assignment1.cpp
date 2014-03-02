@@ -3,6 +3,8 @@ CSIT 839
 Assignment #1
 */
 #include <iostream>
+#include <math.h>
+#include <stdlib.h>
 using namespace std;
 bool reduce(int&, int&, bool&);
   /*
@@ -26,17 +28,20 @@ cout << "Enter a fraction expression: ";
 operation >> psr_num2 >> slash >> psr_den2;
 
  int store_num, store_den;
- calc(psr_num1,slash, psr_den1, operation, psr_num2,slash,psr_den2, store_num, store_den);
+ calc(psr_num1,slash, psr_den1, operation, psr_num2,slash,psr_den2, store_num, store_den);//calculated values show up on instead of original
  reduce(store_num, store_den, tf);
+
  if(tf == true)
    {
-   cout << psr_num1 << slash << psr_den1 << operation << psr_num2
+     cout << "The result was not reduced.(tf == true) \n";
+
+ cout << psr_num1 << slash << psr_den1 << operation << psr_num2
 	<< slash << psr_den2 << " = " << store_num << slash << store_den
 	<< endl;
    }
  else if(tf == false)
    {
-   cout << "The value was not changed!\n";
+   cout << "The result was reduced (tf == false).\n";
  cout << psr_num1 << slash << psr_den1 << operation << psr_num2
       << slash << psr_den2 << " = " << store_num << slash << store_den
       << endl;
@@ -63,19 +68,34 @@ void calc(int& num1, char& slash1, int& den1, char& op_calc, int& num2, char& sl
 {
 if(op_calc == '+')
   {
-    calln = num1 * den2 + den1 * num2;
-    calld = den1 * den2;
-    /*if(den1` > den2)
-    {
-    if(den1 % den2 == 0)
-    for(int i = den2; i >= den1; ++i)
-    {
-    den2*=i;
-    }*/
+    int temp_d1, temp_d2;
+    temp_d1 = den1; temp_d2 = den2;
+    den1*=den2;
+    den2*=temp_d1;
+    num1*=temp_d2;
+    num2*=temp_d1;
+
+    calln = num1 + num2;
+    calld = den2;
+  }
  if(op_calc == '-')//please fix
   {
-    calln = num1 * den2 - den1 * num2;
-    calld = den1 * den2;
+    /*if(num1 == num2)
+calln = num1;
+    */
+int temp_d1, temp_d2;
+    temp_d1 = den1; temp_d2 = den2;
+    den1*=den2;
+    den2*=temp_d1;
+    num1*=temp_d2;
+    num2*=temp_d1;
+
+    calln = num1 - num2;
+    calld = den2;
+
+    /*0/360 - 3/24 = -45/360? DOES NOT REDUCE*/
+    /*When the result is negative, it won't do the reduction*/
+
 /*There will be instances that num2 will be greater than num1 so just a REMINDER*/
   }
 if(op_calc == '*')
@@ -91,17 +111,34 @@ if(op_calc == '/')
 }
 bool reduce(int& r_num, int& r_den, bool& r_tf)
 {
-for(int i = r_num < r_den ? r_num : r_den; i >= 1; --i)
+  /* if(r_num > r_den)
+   {
+     r_tf = true;
+     return r_tf;
+   }
+ else if(r_num == r_den)
   {
-    if(r_num % i == 0 && r_den % i == 0)
-      r_num/=i;
-      r_den/=i;
+      r_num = 1;
+      r_den = 1;
+      r_tf = false;
+      return r_tf;
+      }*/
+
+  for(int i = abs(r_num) < r_den ? abs(r_num) : r_den; i >= 1; --i)/*Does not handle negative numbers*/
+    /*The reason it handles it correctly after (abs) correction is that the numerator is being decremented from a large number to 1*/
+    /*Study abs [stdlib.h/math.h]*/
+  {
+    if(r_num % i == 0 && r_den % i == 0)/*The brackets are added because the entire block is excuted if TRUE*/
+      {
+	r_num/=i;
+	r_den/=i;
+      }
       if(i == 1)
 	{
 	  r_tf = false;
-	  break;
+	  return r_tf;
 	}
-  } 
+  }
  r_tf = true;  
  return r_tf;
 }
