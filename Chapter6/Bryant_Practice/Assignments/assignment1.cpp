@@ -16,15 +16,17 @@ int main()
 
   char m_loop;/*Continue Y/N loop input*/
 
-  cout << "Enter a fraction expression: \n";
+  cout << "Enter a fraction expression: ";
   cin >> psr_num1 >> slash >> psr_den1 >>
     operation >> psr_num2 >> slash >> psr_den2;
+
+  cout << endl << endl;
 
   int store_num, store_den;/*Storing values for passing arguments for calc() and reduce()*/
   int temp_n1 = psr_num1, temp_d1 = psr_den1,
     temp_n2 = psr_num2, temp_d2 = psr_den2;/*Input storing so user won't see calculations*/
 
- calc(psr_num1,slash, psr_den1, operation, psr_num2,slash,psr_den2, store_num, store_den);//calculated values show up on instead of original
+ calc(psr_num1,slash, psr_den1, operation, psr_num2,slash,psr_den2, store_num, store_den);
  reduce(store_num, store_den, tf);
 
  if(tf == true)
@@ -43,7 +45,7 @@ int main()
 	<< slash << temp_d2 << " = " << store_num << slash << store_den
 	<< endl;
    }
-       cout << "Do you want to continue? : [Y/N] \n";
+       cout << "\nDo you want to continue?[Y/N]: ";
        cin >> m_loop;
        m_loop = toupper(m_loop);
        
@@ -58,7 +60,7 @@ int main()
 	   return 0;
 	 }
        }while(m_loop != 'Y' | m_loop != 'N');
-//system("pause");
+       /*system("pause");*/
        return 0;
 }
 void calc(int& num1, char& slash1, int& den1, char& op_calc, int& num2, char& slash2, int& den2, int& calln, int& calld)
@@ -88,8 +90,6 @@ if(op_calc == '+')
 
     calln = num1 - num2;
     calld = den2;
-    /*When the result is negative, it won't do the reduction*/
-/*There will be instances that num2 will be greater than num1 so just a REMINDER*/
   }
 if(op_calc == '*')
   {
@@ -104,32 +104,23 @@ if(op_calc == '/')
 }
 bool reduce(int& r_num, int& r_den, bool& r_tf)
 {
-  if(r_num == 1 || r_den == 1)
+  if(r_num == 1 || r_den == 1)/*SUCH PATCHWORK! WOW*/
     {
       r_tf = false;
       return r_tf;
     }
-  for(int i = abs(r_num) < r_den ? abs(r_num) : r_den; i >= 1; --i)/*Does not handle negative numbers*/
-    /*The reason it handles it correctly after (abs) correction is that the numerator is being decremented from a large number to 1*/
-    /*Study abs [stdlib.h/math.h]*/
+  for(int i = abs(r_num) < r_den ? abs(r_num) : r_den; i >= 1; --i)
     {
       if(r_num % i == 0 && r_den % i == 0)/*The brackets are added because the entire block is excuted if TRUE*/
 	{
-	  r_num/=i;
-	  r_den/=i;
-	  r_tf = true;
-	  return r_tf;
+	      r_num/=i;
+	      r_den/=i;
+	      r_tf = true;
+	      return r_tf;
 	}
-      if(i == 1)
+      else if(i == 1)
 	{
-	  r_tf = true;/*!FIX! 1/1 + 1/1 says it reduced but it didn't*/
-	  return r_tf;
-	}
-      if(r_num > r_den && (r_num % i == 0 && r_den % i == 0))
-	{
-	  r_num/=i;
-	  r_den=i;
-	  r_tf = true;
+	  r_tf = false;
 	  return r_tf;
 	}
     }
