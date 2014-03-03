@@ -56,11 +56,10 @@ int main()
 	 }
        if(m_loop == 'N')
 	 {
-	   cout << "Press any key to continue: " << endl;
+	   system("pause");
 	   return 0;
 	 }
        }while(m_loop != 'Y' | m_loop != 'N');
-       /*system("pause");*/
        return 0;
 }
 void calc(int& num1, char& slash1, int& den1, char& op_calc, int& num2, char& slash2, int& den2, int& calln, int& calld)
