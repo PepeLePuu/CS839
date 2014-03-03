@@ -104,6 +104,11 @@ if(op_calc == '/')
 }
 bool reduce(int& r_num, int& r_den, bool& r_tf)
 {
+  if(r_num == 1 || r_den == 1)
+    {
+      r_tf = false;
+      return r_tf;
+    }
   for(int i = abs(r_num) < r_den ? abs(r_num) : r_den; i >= 1; --i)/*Does not handle negative numbers*/
     /*The reason it handles it correctly after (abs) correction is that the numerator is being decremented from a large number to 1*/
     /*Study abs [stdlib.h/math.h]*/
@@ -112,13 +117,20 @@ bool reduce(int& r_num, int& r_den, bool& r_tf)
 	{
 	  r_num/=i;
 	  r_den/=i;
+	  r_tf = true;
+	  return r_tf;
 	}
       if(i == 1)
 	{
 	  r_tf = true;/*!FIX! 1/1 + 1/1 says it reduced but it didn't*/
 	  return r_tf;
 	}
+      if(r_num > r_den && (r_num % i == 0 && r_den % i == 0))
+	{
+	  r_num/=i;
+	  r_den=i;
+	  r_tf = true;
+	  return r_tf;
+	}
     }
-  r_tf = true;
-  return r_tf;
 }
