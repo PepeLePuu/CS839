@@ -104,40 +104,27 @@ if(op_calc == '/')
 }
 bool reduce(int& r_num, int& r_den, bool& r_tf)
 {
-  /* if(r_num > r_den)
-   {
-     r_tf = true;
-     return r_tf;
-   }
- else if(r_num == r_den)
-  {
-      r_num = 1;
-      r_den = 1;
-      r_tf = false;
-      return r_tf;
-      }*/
-
   for(int i = abs(r_num) < r_den ? abs(r_num) : r_den; i >= 1; --i)/*Does not handle negative numbers*/
     /*The reason it handles it correctly after (abs) correction is that the numerator is being decremented from a large number to 1*/
     /*Study abs [stdlib.h/math.h]*/
   {
     if(r_num % i == 0 && r_den % i == 0)/*The brackets are added because the entire block is excuted if TRUE*/
       {
+	if(i == 1)
+	  {
+	    r_tf = false;
+	    return r_tf;
+	  }
 	r_num/=i;
 	r_den/=i;
+	r_tf = true;
+	return r_tf;
       }
-      if(i == 1)
+    else if(!(r_num % i == 0 || r_den % i == 0))
 	{
-	  r_tf = true;//it reduces to 1 so why did I set it to false
+	  r_tf = false;
 	  return r_tf;//add somewhere i they are equal then return as 1/1
 	}
   }
- r_tf = true;  
- return r_tf;
+  return r_tf;
 }
-/*!TEMP FIX!: I'm am guessing the past problem with the for statement is that it declared 'r_tf' true multiple times
-overwriting when it was set to FALSE. By the time it's done divising by i, it should be declared outside
-the for statement because it is done.
-Also I added the "i == 1" if statement at the end because I think it makes more sense
-at the end because I am still waiting
-for it to divide by by i.*/
