@@ -45,11 +45,13 @@ int main()
 	<< slash << temp_d2 << " = " << store_num << slash << store_den
 	<< endl;
    }
+       
+       do{
+       	
        cout << "\nDo you want to continue?[Y/N]: ";
        cin >> m_loop;
        m_loop = toupper(m_loop);
        
-       do{
        if(m_loop == 'Y')
 	 {
 	   return main();
