@@ -4,8 +4,6 @@ bool score(int[], int);
 int main()
 {
 
-
-	/*
 	int arr[19]; int temp, num;
 
 	cout << "Enter up to 20 number or end with with -99: ";
@@ -35,4 +33,4 @@ bool display(int r_arr[],  int r_num)//What;s being passed is the first address 
 		cout << endl;
 	}
 	return r_arr;
-	*/
+}
