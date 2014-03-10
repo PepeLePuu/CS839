@@ -4,7 +4,6 @@ void CreateDefinedArray(char[]);
 int main()
 {
   char NonDefinedArray[10];
-  char NotYetStoredLetter;
 
   CreateDefinedArray(NonDefinedArray);
 
