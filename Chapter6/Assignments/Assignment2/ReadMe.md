@@ -1,5 +1,4 @@
 
-
 USE C-STRINGS FOR THE FOLLOWING PROJECT. NO STRINGS! :
 
 Write a C++ program that repeatedly asks for and gets a string from the user and presents the following menu of operations on the string until user chooses to exit:
