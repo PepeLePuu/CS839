@@ -10,11 +10,11 @@ int main()
 
   CreateDefinedArray(NonDefinedArray);
 
-  if(NonDefinedArray == "")
+  if(NonDefinedArray[0] == '\0')
     {
       cout << "\ni.imgur.com/M2bZq.gif\n";
     }
-  else
+  if(NonDefinedArray[0] != '\0')
     {
       cout << "\ni.imgur.com/2O7WPl6.gif\n";
     }
@@ -23,5 +23,5 @@ int main()
 }
 void CreateDefinedArray(char DefineArray[50])
 {
-  DefineArray = NULL;//Shit don't work
+  DefineArray[0] = 0x00;
 }
