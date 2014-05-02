@@ -1,0 +1,210 @@
+/*
+Gonzalo Arana
+CSIT 839
+
+
+											Assignment #4: Theater Reservations
+					-------------------------------------------------------------------------------------
+
+Functions to be defined:
+	void initialize(array[][50], size = 26 ) 
+		-set up seat array with:
+		-Rows: A-Z
+		-Columns: 1-50
+		-Name: "\0"
+		-Assigned: False
+		-Assignment Date: 1/1/1900
+		**
+			-ORCHESTRA first 5 rows
+			-FRONT next 5
+			-MIDDLE next 10
+			-BACK last 6
+	void display(array[][50], size = 26, type) //type = 0 or 1; 0 to show all, 1 to show assigned
+		Calls:
+		I.		Display every initialized available seat.
+					-Most expensive to least expensive
+					-type = 0
+		II.		Display all assigned seats
+					-type = 1
+		III.	Display assigned seats in order by first name
+					-type = 1
+	void sort(array[][50], size = 26)
+		-sorts purchased seats by first name
+	void binarySearch(array[][50], size = 26)
+		-searches the sorted list
+		-displays result 
+			- or "Name not found" if not found
+	int main()
+		
+*/
+
+
+/*
+	NOTE: place[i][j] are offset by 1,
+			THEREFORE place[1][30] = seat row B  column 31		
+*/
+
+#include<iostream>
+using namespace std;
+
+enum section {ORCHESTRA, FRONT, MIDDLE, BACK};
+const double prices[] = { 150.00, 100.00, 75.00, 50.00 };
+const int size = 26;
+const char slash = '/';
+
+struct date {
+	int month, day, year;
+};
+
+struct seat{
+	char row;
+	int column;
+	section area;
+	bool assigned;
+	char name[64];
+	date buydate; 
+};
+
+void initialize(seat[][50], int);
+void display(seat[][50], int, int);
+void sort(seat[][50], int);
+void binarySearch(seat[][50], int);
+
+int main(){
+	seat place[26][50];
+	initialize(place, size);
+	strcpy_s(place[0][0].name, "Steven");
+	place[0][0].assigned = true;
+	strcpy_s(place[0][1].name, "John");
+	place[0][1].assigned = true;
+	strcpy_s(place[0][2].name, "Mark");
+	place[0][2].assigned = true;
+	strcpy_s(place[1][2].name, "Jim");
+	place[1][2].assigned = true;
+	display(place, size, 1);
+	sort(place, size);
+	display(place, size, 1);
+	cout << " \nUNFINISHED/ UNSUCCESFUL. \n\n";
+	system("pause");
+}
+
+void initialize(seat place[][50], int size){
+	for (int i = 0; i < size; i++){
+		for (int j = 0; j < 50; j++){
+			if (i <= 4)
+				place[i][j] = { (i + 65), (j + 1), ORCHESTRA, false, "\0", { 1, 1, 1900 } };
+			else if (i <= 9)
+				place[i][j] = { (i + 65), (j + 1), FRONT, false, "\0", { 1, 1, 1900 } };
+			else if (i <= 19)
+				place[i][j] = { (i + 65), (j + 1), MIDDLE, false, "\0", { 1, 1, 1900 } };
+			else if (i <= 25)
+				place[i][j] = { (i + 65), (j + 1), BACK, false, "\0", { 1, 1, 1900 } };
+		}
+	}
+}
+
+void display(seat place[][50], int size, int type){
+		for (int i = 0; i < size; i++){
+			for (int j = 0; j < 50; j++){
+				if ((type == 1 && (place[i][j].assigned == true)) || type == 0)
+				{
+					cout << place[i][j].row << ' ' << place[i][j].column
+						<< ", Section ";
+
+					if (place[i][j].area == 0)
+						cout << "ORCHESTRA";
+					else if (place[i][j].area == 1)
+						cout << "FRONT";
+					else if (place[i][j].area == 2)
+						cout << "MIDDLE";
+					else if (place[i][j].area == 3)
+						cout << "BACK";
+
+					cout << ", Price $"
+						<< prices[place[i][j].area] << ", ";
+					if (place[i][j].assigned = true)
+						cout << place[i][j].name << ", ";
+					cout<< place[i][j].buydate.month
+						<< slash << place[i][j].buydate.day << slash
+						<< place[i][j].buydate.year;
+					cout << endl;
+				}
+			}
+		}
+}
+
+void sort(seat place[][50], int size){
+	seat temp;
+	int previousi, previousj;
+	bool first = true, switched = false, ordered = false;
+
+	while (ordered == false)
+	{	
+		switched = false;
+		for (int i = 0; i < size; i++)
+		{
+			for (int j = 0; j < 50; j++)
+			{
+				if (i == 0 && j == 0)
+				{
+					previousi = 0;
+					previousj = 0;
+				}
+				else
+				{
+					if (j == 0)
+					{
+						previousi = i - 1;
+						previousj = 49;
+					}
+					else
+					{
+						previousi = i;
+						previousj = j - 1;
+					}
+
+					if ((tolower(place[previousi][previousj].name[0])) > (tolower(place[i][j].name[0])))
+					{
+						temp = place[previousi][previousj];
+						place[previousi][previousj] = place[i][j];
+						place[i][j] = temp;
+						switched = true;
+					}
+
+		/*
+					WAS UNABLE TO SORT IF FIRST LETTERS IN NAME ARE THE SAME
+				
+					if ((tolower(place[previousi][previousj].name[0])) == (tolower(place[i][j].name[0])))
+					{
+						int lenprev = strlen(place[previousi][previousj].name);
+						int lencurr = strlen(place[i][j].name);
+						int shortest = lenprev;
+						shortest = lenprev <= lencurr ? lenprev : lencurr;
+						switched = false;
+						int k = 1;
+						while (k <= shortest - 1)
+							{
+								if ((tolower(place[previousi][previousj].name[k])) > (tolower(place[i][j].name[k])))
+								{
+									temp = place[previousi][previousj];
+									place[previousi][previousj] = place[i][j];
+									place[i][j] = temp;
+									switched = true;
+									k = shortest + 1;
+								}
+								else k++;
+							}
+					}
+				*/
+				}
+				first = false;
+			}
+		}
+
+		if (switched == false)
+		{
+			ordered = true;
+		}
+	}
+
+}
